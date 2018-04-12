@@ -4,11 +4,12 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Paint.Align;
+import android.graphics.Paint.FontMetrics;
 import android.graphics.Rect;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Toast;
 
 
 public class FontMetricsView extends View {
@@ -30,6 +31,7 @@ public class FontMetricsView extends View {
     private TextPaint mTextPaint;
     private Paint mLinePaint;
     private Paint mRectPaint;
+    private Paint mViewCenterLinePaint;
     private Rect mBounds;
     private boolean mIsTopVisible;
     private boolean mIsAscentVisible;
@@ -97,16 +99,25 @@ public class FontMetricsView extends View {
         mRectPaint.setStrokeWidth(STROKE_WIDTH);
         mRectPaint.setStyle(Paint.Style.STROKE);
 
+        mViewCenterLinePaint = new Paint();
+        mViewCenterLinePaint.setColor(Color.BLACK);
+        mRectPaint.setStrokeWidth(1f);
+        mRectPaint.setStyle(Paint.Style.STROKE);
 
         mBounds = new Rect();
 
-        mIsTopVisible = true;
-        mIsAscentVisible = true;
-        mIsBaselineVisible = true;
-        mIsDescentVisible = true;
-        mIsBottomVisible = true;
-        mIsBoundsVisible = true;
-        mIsWidthVisible = true;
+        mIsTopVisible = false;
+        mIsAscentVisible = false;
+        mIsBaselineVisible = false;
+        mIsDescentVisible = false;
+        mIsBottomVisible = false;
+        mIsBoundsVisible = false;
+        mIsWidthVisible = false;
+    }
+
+    public void setTextAlign(Align align) {
+        mTextPaint.setTextAlign(align);
+        invalidate();
     }
 
     @Override
@@ -114,7 +125,16 @@ public class FontMetricsView extends View {
         super.onDraw(canvas);
 
         // center the text baseline vertically
-        int verticalAdjustment = this.getHeight() / 2;
+        canvas.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2, mViewCenterLinePaint);
+        canvas.drawLine(getWidth() / 2, 0, getWidth() / 2, getHeight(), mViewCenterLinePaint);
+        FontMetrics fontMetrics = mTextPaint.getFontMetrics();
+        float descent = fontMetrics.descent;
+        float top = fontMetrics.top;
+        float asccent = fontMetrics.ascent;
+        float botom = fontMetrics.bottom;
+        float baseLineToCenterY = ((Math.abs(asccent)) + descent) / 2 - descent;
+        //中间点
+        float verticalAdjustment = this.getHeight() / 2  + baseLineToCenterY;
         canvas.translate(0, verticalAdjustment);
 
         float startX = getPaddingLeft();
@@ -218,7 +238,7 @@ public class FontMetricsView extends View {
     }
 
     // getters
-    public Paint.FontMetrics getFontMetrics() {
+    public FontMetrics getFontMetrics() {
         return mTextPaint.getFontMetrics();
     }
 

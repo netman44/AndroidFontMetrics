@@ -32,4 +32,7 @@
         <item name="colorControlActivated">@color/text_bounds</item>
     </style>
 
+    <style name="textSytle">
+        <item name="android:textSize">15dp</item>
+    </style>
 </resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmojiSpanDemoActivity">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <SeekBar
+                android:max="400"
+                android:progress="200"
+                android:id="@+id/textSizeSeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/fontPadding"
+                    android:text="设置FontPadding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <CheckBox
+                    android:id="@+id/fontPadding_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/haveFontPadding"
+                android:background="#0f0000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="文字测试：HhYyHJj。FontPadding=true"/>
+
+            <TextView
+                android:id="@+id/noFontPadding"
+                android:background="#0f0000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:layout_marginTop="10dp"
+                android:text="文字测试：HhYyHJj FontPadding=false"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/emoji_text"
+            android:background="#0f0000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="文字测试：HhYyHJj FontPadding=false"/>
+
+        <TextView
+            android:id="@+id/old_emoji_text"
+            android:background="#0f0000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="文字测试：HhYyHJj FontPadding=false"/>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
