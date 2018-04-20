@@ -21,6 +21,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/text_margin"
             android:text="表情测试"/>
+
+        <TextView
+            android:onClick="fontFamily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:text="fontFamily"/>
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

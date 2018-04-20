@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
@@ -61,7 +60,6 @@ public class EmojiSpanDemoActivity extends Activity implements View.OnClickListe
     }
 
     void setTextSize(float size) {
-        mEmojiText.setTypeface();
         mEmojiText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, size);
         mOldEmojiText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, size);
         mHaveFontPadding.setTextSize(TypedValue.COMPLEX_UNIT_DIP, size);

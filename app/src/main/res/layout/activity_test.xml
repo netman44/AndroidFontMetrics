@@ -1,49 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <SeekBar
+        android:id="@+id/font_sizeChange"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="default-Regular"
+                android:textStyle="normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="default-Regular-italic"
+                android:textStyle="italic"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="default-Regular-bold"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="default-Regular-bold-italic"
+                android:textStyle="bold|italic"/>
+
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="5dp"
+                android:background="#0f0"></FrameLayout>
 
-    <RelativeLayout
-        android:id="@+id/soft_panel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#fff"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:minHeight="50dp"></RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-thin"
+                android:text="Roboto Thin"
+                android:textStyle="normal"/>
 
-    <LinearLayout
-        android:id="@+id/utils_panel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/soft_panel"
-        android:orientation="vertical"
-        android:background="#0ff"
-        android:minHeight="50dp">
-    </LinearLayout>
-    <RelativeLayout
-        android:id="@+id/show_panel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/utils_panel"
-        android:orientation="vertical"
-        android:background="#000"
-        android:minHeight="50dp">
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-thin"
+                android:text="Roboto Thin Italic"
+                android:textStyle="italic"/>
 
-    <View
-        android:id="@+id/layout_divider"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_above="@id/show_panel"
-        android:background="f00"
-        />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-light"
+                android:text="Roboto Light "
+                android:textStyle="normal"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-light"
+                android:text="Roboto Light Italic"
+                android:textStyle="italic"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif"
+                android:text="Roboto Regular"
+                android:textStyle="normal"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Condensed regular bold"
+                android:textStyle="bold"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif"
+                android:text="Roboto Regular Italic"
+                android:textStyle="bold"/>
 
-</RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="Roboto Condensed Light"
+                android:textStyle="normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Condensed regular"
+                android:textStyle="normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="Roboto Condensed Medium"
+                android:textStyle="normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Condensed regular italic"
+                android:textStyle="italic"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Condensed regular bold italic"
+                android:textStyle="bold|italic"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-medium"
+                android:text="Roboto Medium "
+                android:textStyle="normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-medium"
+                android:text="Roboto Medium Italic"
+                android:textStyle="italic"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif"
+                android:text="Roboto Bold"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-thin"
+                android:text="Roboto Bold Italic"
+                android:textStyle="bold|italic"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-black"
+                android:text="Roboto Black"
+                android:textStyle="normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-black"
+                android:text="Roboto Black Italic"
+                android:textStyle="italic"/>
+
+            <FrameLayout
+                android:background="@android:color/darker_gray"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"></FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="serif"
+                android:text="Noto Serif "
+                android:textStyle="bold|italic"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="monospace"
+                android:text="Droid Sans Mono  "
+                android:textStyle="bold|italic"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="serif-monospace"
+                android:text="Cutive Mono"
+                android:textStyle="bold|italic"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="casual"
+                android:text="Coming Soon"
+                android:textStyle="bold|italic"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="cursive"
+                android:text="Dancing Script"
+                android:textStyle="bold|italic"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#4400ff44"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="Carrois Gothic SC"
+                android:textStyle="bold|italic"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
