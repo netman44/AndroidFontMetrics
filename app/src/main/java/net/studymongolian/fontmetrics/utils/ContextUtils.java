@@ -1,4 +1,4 @@
-package net.studymongolian.fontmetrics;
+package net.studymongolian.fontmetrics.utils;
 
 import android.content.Context;
 

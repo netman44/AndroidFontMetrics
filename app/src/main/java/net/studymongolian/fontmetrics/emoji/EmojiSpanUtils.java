@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
-import net.studymongolian.fontmetrics.ContextUtils;
+import net.studymongolian.fontmetrics.utils.ContextUtils;
 import net.studymongolian.fontmetrics.R;
 
 /**
@@ -57,6 +57,15 @@ public class EmojiSpanUtils {
             beginIndex = ss.length();
         }
 
+        if (tags.contains(TYPE_ESSENCE)) {
+            ss.append("精 ");
+            Drawable essenceDrawable = ContextUtils.getContext().getResources().getDrawable(R.drawable.planet_card_tag_essence);
+
+            ImageSpan span = new EmojiImageSpan(ContextUtils.getContext(), ((BitmapDrawable) essenceDrawable).getBitmap());
+            ss.setSpan(span, beginIndex, beginIndex + 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+            beginIndex = ss.length();
+        }
+
         ss.append(title);
         return ss;
     }
@@ -83,6 +92,15 @@ public class EmojiSpanUtils {
                 ContextUtils.getContext(),
                 ((BitmapDrawable) highQualityDrawable).getBitmap(), 0);
             ss.setSpan(span, beginIndex, beginIndex + 2, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+            beginIndex = ss.length();
+        }
+
+        if (tags.contains(TYPE_ESSENCE)) {
+            ss.append("精 ");
+            Drawable essenceDrawable = ContextUtils.getContext().getResources().getDrawable(R.drawable.planet_card_tag_essence);
+
+            ImageSpan span = new EmojiImageSpanForPostDetail(ContextUtils.getContext(), ((BitmapDrawable) essenceDrawable).getBitmap());
+            ss.setSpan(span, beginIndex, beginIndex + 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
             beginIndex = ss.length();
         }
 

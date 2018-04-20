@@ -8,6 +8,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.text.style.ImageSpan;
+import android.util.Log;
 
 /**
  * @author hongkai.qian
@@ -68,25 +69,40 @@ public class EmojiImageSpan extends ImageSpan {
     @Override
     public int getSize(Paint paint, CharSequence text, int start, int end,
                        Paint.FontMetricsInt fontMetricsInt) {
-        Drawable drawable = getDrawable();
-        Rect rect = drawable.getBounds();
-        //算法 https://stackoverflow.com/questions/25628258/align-text-around-imagespan-center-vertical
-        //http://www.jb51.net/article/107941.htm
-        if (fontMetricsInt != null) {
-            Paint.FontMetricsInt fmPaint = paint.getFontMetricsInt();
-            //字体高度
-            int fontHeight = fmPaint.descent - fmPaint.ascent;
-            //图片高度
-            int drHeight = rect.bottom - rect.top;
-            //文字的中间坐标
-            int centerY = fmPaint.ascent + fontHeight / 2;
-            //设置图片显示区域
-            fontMetricsInt.ascent = centerY - drHeight / 2;
-            fontMetricsInt.top = fontMetricsInt.ascent;
-            fontMetricsInt.bottom = centerY + drHeight / 2;
-            fontMetricsInt.descent = fontMetricsInt.bottom;
+        Log.e("zhiwei:", this.getClass().getSimpleName() + " 1111getSize: fontMetricsInt=" + fontMetricsInt);
+        if (mVerticalAlignment == ALIGN_GONT_CENTER) {
+            Drawable drawable = getDrawable();
+            Rect rect = drawable.getBounds();
+            //算法 https://stackoverflow.com/questions/25628258/align-text-around-imagespan-center-vertical
+            //http://www.jb51.net/article/107941.htm
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fmPaint = paint.getFontMetricsInt();
+                //字体高度
+                int fontHeight = fmPaint.descent - fmPaint.ascent;
+                //图片高度
+                int drHeight = rect.bottom - rect.top;
+                //文字的中间坐标
+                int centerY = fmPaint.ascent + fontHeight / 2;
+                //设置图片显示区域
+                fontMetricsInt.ascent = centerY - drHeight / 2;
+                fontMetricsInt.top = fontMetricsInt.ascent;
+                fontMetricsInt.bottom = centerY + drHeight / 2;
+                fontMetricsInt.descent = fontMetricsInt.bottom;
+
+                //Paint.FontMetricsInt fmPaint = paint.getFontMetricsInt();
+                //int fontHeight = fmPaint.bottom - fmPaint.top;
+                //int drHeight = rect.bottom - rect.top;
+                //int top = drHeight / 2 - fontHeight / 4;
+                //int bottom = drHeight / 2 + fontHeight / 4;
+                //fontMetricsInt.ascent = -bottom;
+                //fontMetricsInt.top = -bottom;
+                //fontMetricsInt.bottom = top;
+                //fontMetricsInt.descent = top;
+            }
+            Log.e("zhiwei:", this.getClass().getSimpleName() + " 2222getSize: fontMetricsInt=" + fontMetricsInt);
+            return rect.right;
         }
-        return rect.right;
+        return super.getSize(paint, text, start, end, fontMetricsInt);
     }
 
     @Override
@@ -97,10 +113,9 @@ public class EmojiImageSpan extends ImageSpan {
         // drawable的流对象，并最终获取drawable对象
         Drawable drawable = getDrawable(); //调用imageSpan中的方法获取drawable对象
         canvas.save();
-
         //获取画笔的文字绘制时的具体测量数据
         Paint.FontMetricsInt fm = paint.getFontMetricsInt();
-
+        Log.e("zhiwei:", this.getClass().getSimpleName() + " draw: fm=" + fm);
         //系统原有方法，默认是Bottom模式)
         int transY = bottom - drawable.getBounds().bottom;
         if (mVerticalAlignment == ALIGN_BASELINE) {

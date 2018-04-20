@@ -1,6 +1,8 @@
 package net.studymongolian.fontmetrics;
 
 import android.app.Application;
+import net.studymongolian.fontmetrics.utils.ContextUtils;
+import net.studymongolian.fontmetrics.utils.DisplayUtils;
 
 /**
  * 在此写用途
@@ -13,6 +15,7 @@ public class FontApplition extends Application{
     @Override
     public void onCreate() {
         super.onCreate();
+        DisplayUtils.init(getBaseContext().getResources().getDisplayMetrics());
         ContextUtils.setContext(this);
     }
 }

@@ -3,8 +3,8 @@ package net.studymongolian.fontmetrics;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextPaint;
 import android.view.View;
+import net.studymongolian.fontmetrics.test.TestActivity;
 
 public class MainActivity extends Activity {
 
@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
     }
 
     public void jumpPaint(View view) {
-        jump(TextPaintActivity.class);
+        jump(TestActivity.class);
     }
 
     void jump(Class clazz) {

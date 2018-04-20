@@ -100,8 +100,8 @@ public class FontMetricsView extends View {
         mRectPaint.setStyle(Paint.Style.STROKE);
 
         mViewCenterLinePaint = new Paint();
-        mViewCenterLinePaint.setColor(Color.BLACK);
-        mRectPaint.setStrokeWidth(1f);
+        mViewCenterLinePaint.setColor(Color.RED);
+        mRectPaint.setStrokeWidth(2f);
         mRectPaint.setStyle(Paint.Style.STROKE);
 
         mBounds = new Rect();
@@ -129,9 +129,7 @@ public class FontMetricsView extends View {
         canvas.drawLine(getWidth() / 2, 0, getWidth() / 2, getHeight(), mViewCenterLinePaint);
         FontMetrics fontMetrics = mTextPaint.getFontMetrics();
         float descent = fontMetrics.descent;
-        float top = fontMetrics.top;
         float asccent = fontMetrics.ascent;
-        float botom = fontMetrics.bottom;
         float baseLineToCenterY = ((Math.abs(asccent)) + descent) / 2 - descent;
         //中间点
         float verticalAdjustment = this.getHeight() / 2  + baseLineToCenterY;
@@ -141,7 +139,6 @@ public class FontMetricsView extends View {
         float startY = 0;
         float stopX = this.getMeasuredWidth();
         float stopY = 0;
-
         // draw text
         canvas.drawText(mText, startX, startY, mTextPaint); // x=0, y=0
 

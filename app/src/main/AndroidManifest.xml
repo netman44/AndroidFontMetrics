@@ -12,11 +12,13 @@
         <activity
             android:name=".TextPaintActivity"
             android:windowSoftInputMode="stateAlwaysHidden">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN"/>-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".EmojiSpanDemoActivity"
@@ -35,6 +37,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".test.TestActivity"
+            android:label="@string/title_activity_test">
         </activity>
     </application>
 
